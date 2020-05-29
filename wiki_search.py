@@ -5,6 +5,7 @@ from wikipedia.exceptions import DisambiguationError
 WIKI_HOST = "https://en.wikipedia.org"
 
 def search_results(q_term):
+    print("Searching for page: " + q_term)
     try:
         page = wikipedia.page(q_term)
         return [page.url]
@@ -12,6 +13,4 @@ def search_results(q_term):
         page_list = [WIKI_HOST + p.get('href') for p in e.options]
         return page_list
 
-if __name__ == '__main__':
-    print(search_results(sys.argv[1]))
 
